@@ -1,185 +1,145 @@
-# regaAqui
-RegaAqui é um sistema de irrigação automática sustentável que monitora a umidade do solo e ativa a irrigação apenas quando necessário, reduzindo desperdício de água e otimizando o consumo. O projeto utiliza sensores, microcontrolador e lógica automatizada para garantir eficiência hídrica e autonomia no processo de rega.
-🌱 Sistema de Irrigação Automatizado com Arduino
-📌 Sobre o Projeto
+# 🌱 SmartIrriga — Sistema de Irrigação Automatizado com Arduino
 
-Sistema de irrigação automatizado de baixo custo, desenvolvido para pequenos agricultores, hortas e jardins.
-O objetivo é reduzir desperdício de água e energia usando sensores ambientais + Arduino + aplicativo móvel para controle remoto via Bluetooth.
+![Arduino](https://img.shields.io/badge/Arduino-UNO-00979D?logo=arduino)
+![Status](https://img.shields.io/badge/status-Protótipo%20Validado-success)
+![Custo](https://img.shields.io/badge/custo-Baixo-green)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
-O sistema monitora:
+> Sistema inteligente de irrigação de baixo custo para pequenos agricultores, hortas e jardins, com monitoramento em tempo real e controle remoto via Bluetooth.
 
-Umidade do solo
+---
 
-Umidade do ar
+## 📌 Sobre o Projeto
 
-Temperatura
+O **SmartIrriga** é um sistema de irrigação automatizado desenvolvido para reduzir o desperdício de água e energia na agricultura, especialmente em pequenas hortas e plantações.
 
-Presença de chuva
+Utiliza sensores ambientais conectados a um **Arduino UNO**, que controla automaticamente uma bomba centrífuga com base na umidade do solo e condições climáticas.
 
-Com base nesses dados, a irrigação é acionada automaticamente ou manualmente pelo usuário.
+---
 
-🧠 Problema
+## 🎯 Objetivos
 
-No Brasil (principalmente no Nordeste), a agricultura consome e desperdiça grandes volumes de água por falta de controle eficiente na irrigação.
+- Monitorar a umidade do solo
+- Detectar chuva
+- Medir temperatura e umidade do ar
+- Automatizar o acionamento da bomba
+- Permitir controle remoto via aplicativo mobile
+- Reduzir desperdício hídrico
 
-Sistemas tradicionais:
+---
 
-Funcionam por tempo fixo
+## ⚙️ Arquitetura do Sistema
 
-Não consideram tipo de solo
+Sensores → Arduino → Relé → Bomba  
+Arduino → Bluetooth → Aplicativo Mobile  
 
-Ignoram temperatura e chuva
+---
 
-Desperdiçam água e energia
+## 🧰 Componentes Utilizados
 
-Esse projeto propõe uma solução acessível, eficiente e automatizada.
+### Hardware
 
-🎯 Objetivo Geral
+- Arduino UNO
+- Sensor de Umidade do Solo
+- Sensor DHT11 (temperatura e umidade do ar)
+- Sensor de Chuva
+- Módulo Relé
+- Bomba RS-385H (até 100L/h)
+- LEDs indicadores
+- Módulo Bluetooth
+- Protoboard, resistores e jumpers
 
-Desenvolver um sistema automatizado utilizando Arduino + sensores + aplicativo móvel, capaz de:
+### Software
 
-Monitorar variáveis ambientais
+- Linguagem C/C++ (Arduino IDE)
+- MIT App Inventor
+- Comunicação via Bluetooth
 
-Controlar irrigação automaticamente
+---
 
-Permitir acionamento remoto
+## 🔄 Lógica do Sistema
 
-Promover uso racional de água e energia
+```pseudo
+Ler sensores
 
-⚙️ Componentes Utilizados
-Hardware
+Se (umidade do solo < limite definido) e (não estiver chovendo)
+    Ligar bomba
+Senão
+    Desligar bomba
+Fim
+```
 
-Arduino UNO
+Indicadores LED:
 
-Sensor de Umidade do Solo
+- Verde → Solo úmido  
+- Amarelo → Nível intermediário  
+- Vermelho → Solo seco  
 
-Sensor DHT11 (temperatura e umidade do ar)
+---
 
-Sensor de Chuva
+## 📱 Aplicativo Mobile
 
-Módulo Relé
+Funcionalidades:
 
-Bomba centrífuga RS-385H (até 100L/h)
+- Monitoramento em tempo real
+- Visualização de temperatura e umidade
+- Status da chuva
+- Acionamento manual da bomba
+- Exibição do estado do sistema
 
-Protoboard
+---
 
-Resistores
+## 🧪 Resultados
 
-Jumpers
+- Sensores apresentaram boa precisão
+- Arduino suportou o processamento adequadamente
+- Economia significativa de água
+- Sistema funcional e replicável
+- Protótipo viável para comercialização
 
-LEDs indicadores (verde, amarelo, vermelho)
+---
 
-Módulo Bluetooth
+## 🚀 Melhorias Futuras
 
-Software
+- Integração com Wi-Fi
+- Monitoramento em nuvem
+- Dashboard web
+- Comunicação GSM
+- Integração com energia solar
 
-Linguagem nativa do Arduino (C/C++)
+---
 
-Aplicativo desenvolvido no MIT App Inventor
+## 🌎 Impacto
 
-🔌 Funcionamento
+- Uso racional de recursos hídricos
+- Incentivo à agricultura sustentável
+- Aplicação educacional em robótica e automação
+- Solução acessível para pequenos produtores
 
-Sensores coletam dados ambientais.
+---
 
-Arduino processa as informações.
-
-Se o solo estiver seco (e não estiver chovendo), a bomba é acionada.
-
-LEDs indicam o nível de umidade:
-
-🟢 Verde → Solo úmido
-
-🟡 Amarelo → Atenção
-
-🔴 Vermelho → Solo seco
-
-O usuário pode monitorar tudo pelo app e acionar remotamente via Bluetooth.
-
-📱 Aplicativo Mobile
-
-O app permite:
-
-Visualizar temperatura do ar
-
-Ver umidade do solo
-
-Monitorar chuva
-
-Ativar/desativar irrigação
-
-Acompanhar status da bomba
-
-Comunicação feita via Bluetooth entre Arduino e smartphone.
-
-🧪 Metodologia
-
-Pesquisa bibliográfica sobre irrigação e automação
-
-Estudo sobre Arduino e sensores
-
-Montagem do circuito eletrônico
-
-Programação do sistema
-
-Desenvolvimento do app
-
-Construção do protótipo
-
-Testes práticos
-
-Apresentação de resultados
-
-📊 Resultados
-
-Sensores apresentaram boa precisão
-
-Arduino suportou bem o processamento
-
-Economia significativa de água
-
-Sistema funcional e viável para comercialização
-
-Interface intuitiva e simples
-
-🌎 Impacto
-
-Redução de desperdício hídrico
-
-Economia de energia
-
-Solução acessível para pequenos produtores
-
-Incentivo à agricultura sustentável
-
-Aplicação prática de robótica educacional
-
-🚀 Melhorias Futuras
-
-Integração com Wi-Fi ou GSM (monitoramento remoto sem limite de distância)
-
-Ajustes baseados em tipos específicos de solo
-
-Expansão para análise de consumo energético detalhado
-
-Integração com IoT
-
-📚 Referências
-
-ALLEN et al. (1998) – Crop evapotranspiration
-
-MARQUELLI et al. (1994) – Irrigação agrícola
-
-MCROBERTS (2013) – Beginning Arduino
-
-MACEDO et al. (2010) – Irrigação automatizada
-
-RODRIGUES & IRIAS (2004) – Impactos ambientais da irrigação
-
-👨‍💻 Autores
+## 👨‍💻 Autores
 
 Guilherme Davi Alves
+
+
 Jonh Oliveira
+
+
 Emilly Silva
+
+
 Rian Araujo
+
+
 Luis Gustavo Alves
+
+
 Eric Ruan
+
+
+---
+
+## 📄 Licença
+
+MIT License
