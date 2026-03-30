@@ -123,8 +123,6 @@ Funcionalidades:
 Guilherme Davi Alves
 
 
-Jonh Oliveira
-
 
 Emilly Silva
 
